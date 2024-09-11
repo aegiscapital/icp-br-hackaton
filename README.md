@@ -93,17 +93,21 @@ dfx deploy token_transfer_backend
 
 #### E vamos chamar a função “transferPrivilege” passando de argumento o Principal que queremos utilizar como “Owner”, que fará a distribuição das Runas. Nesse caso será o próprio Principal que estamos usando (“Default”):
 
+```bash
 dfx canister call token_transfer_backend transferPrivilege "(principal \"$(dfx identity getprincipal)\")"
+```
 
 #### E finalmente podemos finalizar o nosso Setup Local transferindo Runas para o Canister. 
 #### Nesse exemplo, vamos enviar 10 Runas:
 
+```bash
 dfx canister call icrc1_ledger_canister icrc1_transfer "(record {
  to = record {
  owner = principal \"$(dfx canister id token_transfer_backend)\";
  };
  amount = 1_000_000_000;
 })"
+```
 
 #### Com o Setup finalizado, podemos fazer o uso do Canister utilizando nosso Principal “Default”.
 #### Vamos fazer a distribuição das Runas da Denise e do Edward.
