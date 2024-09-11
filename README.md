@@ -125,19 +125,21 @@ dfx canister call token_transfer_backend bulkTransfer "(record {
  };
 })"
 ```
-## Mídias e Informações adicionais
+## Mídias do Projeto
 
 - **Testando Canister Local**
 
 ![image](https://github.com/user-attachments/assets/65cfff03-8eea-46bf-92f4-a553d8be793a)
 
-## Mídias e Informações adicionais
+## Demonstração do Website
 
 ### Link: [Website Demo](https://drive.google.com/file/d/1wQHYSEBa-bBeWwsc6JkYz_Ah56QBTijB/view?usp=sharing)
 
 ## Time
 
 Hiago Ferucci e Marcelo Dussel
+
+# Informações Adicionais
 
 Welcome to your new `hackaton_project` project and to the Internet Computer development community. By default, creating a new project adds this README and some template files to your project directory. You can edit these template files to customize your project and to include your own code to speed up the development cycle.
 
