@@ -125,15 +125,15 @@ dfx canister call token_transfer_backend bulkTransfer "(record {
  };
 })"
 ```
-## Project Media
+## Mídias e Informações adicionais
 
 - **Testando Canister Local**
 
 ![image](https://github.com/user-attachments/assets/65cfff03-8eea-46bf-92f4-a553d8be793a)
 
-# **Apresentação Demo do Website**
+## Mídias e Informações adicionais
 
-## Link: [Website Demo](https://drive.google.com/file/d/1wQHYSEBa-bBeWwsc6JkYz_Ah56QBTijB/view?usp=sharing)
+### Link: [Website Demo](https://drive.google.com/file/d/1wQHYSEBa-bBeWwsc6JkYz_Ah56QBTijB/view?usp=sharing)
 
 ## Time
 
