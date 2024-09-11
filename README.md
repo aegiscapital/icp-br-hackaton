@@ -125,21 +125,6 @@ dfx canister call token_transfer_backend bulkTransfer "(record {
  };
 })"
 ```
-
-## Future Plans
-
-**Distributing the Value of Co-created Collections to the Community**
-
-- Resources: https://internetcomputer.org/docs/current/developer-docs/integrations/ethereum/evm-rpc
-
-**Implementing Deeper DAO Structure Using SNS**
-
-- Resources: https://internetcomputer.org/docs/current/tokenomics/
-
-## Roadmap Details and History (Docs)
-
-- Visit: https://aegis-protocol.gitbook.io/en/history/roadmap
-
 ## Project Media
 
 - **Running Local Cannister**
