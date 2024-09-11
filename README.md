@@ -38,6 +38,7 @@ Esse Canister possibilita uma distribuição automatizada das Runas armazenadas,
 
 #### Para o exemplo, vamos considerar que 5 pessoas ganharam uma competição de arte para a ICP Hub BR e estão elegíveis para receber uma premiação em Runas:
 
+```bash
 A – Aline – 16 Runas – xfznx-sgxv2-ty5tf-niw3v-6u34s-suz5w-xza2d-kwpwo-qq7fc-ug4oc-oqe
 
 B – Bob – 8 Runas – 6fp7j-oxpeg-gwgjl-zvjsj-kmne4-wq6cw-wnh5h-tbfii-q2nvs-gwpvm-2ae
@@ -47,6 +48,7 @@ C – Carlos – 4 Runas – z3fut-ezcmm-f3qfz-4hxqz-7fmp7-bu74a-js3td-g5wr5-2nc
 D – Denise – 2 Runas – pykrr-ecxve-bksoh-oipzw-hdpoj-djhdp-brkgd-h7h54-oincy-lu4wn-zqe
 
 E – Edward – 1 Runa – mgc4g-k3pmg-wtkha-omup5-y7eom-ip4b5-lvjdx-qu5wr-nl6wm-vbhls-kae
+```
 
 #### Testando Localmente:
 
@@ -54,16 +56,19 @@ E – Edward – 1 Runa – mgc4g-k3pmg-wtkha-omup5-y7eom-ip4b5-lvjdx-qu5wr-nl6w
 
 #### Para isso, primeiro definimos um “Minter” e uma conta padrão “Default” – para onde as Runas serão mintadas:
 
+```bash
 dfx identity new minter
 dfx identity use minter
 export MINTER=$(dfx --identity anonymous identity get-principal)
 dfx identity new default
 dfx identity use default
 export DEFAULT=$(dfx identity get-principal)
+```
 
 #### E então podemos dar o deploy no Canister. Nessa configuração, serão mintadas 100 Runas para o
 #### Principal “Default” e a taxa de transferência será inicializada em 0,0001 tokens.
 
+```bash
 dfx deploy icrc1_ledger_canister --argument "(variant { Init =
 record {
  token_symbol = \"ICRC1\";
@@ -80,6 +85,7 @@ record {
  };
  }
 })"
+```
 
 #### Com as Runas mintadas, vamos fazer o deploy do nosso Canister:
 
@@ -103,6 +109,7 @@ dfx canister call icrc1_ledger_canister icrc1_transfer "(record {
 #### Vamos fazer a distribuição das Runas da Denise e do Edward.
 #### Como proteção para eventuais erros, o Canister requer que a lista de Accounts e a lista de Amounts possua o mesmo tamanho.
 
+```bash
 dfx canister call token_transfer_backend bulkTransfer "(record {
  amounts = vec {
  200_000_000;
@@ -113,6 +120,7 @@ dfx canister call token_transfer_backend bulkTransfer "(record {
  record { owner = principal \"mgc4g-k3pmg-wtkha-omup5-y7eom-ip4b5-lvjdx-qu5wr-nl6wmvbhls-kae\" };
  };
 })"
+```
 
 ## Future Plans
 
