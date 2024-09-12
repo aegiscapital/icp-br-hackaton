@@ -60,7 +60,7 @@ E – Edward – 1 Runa – mgc4g-k3pmg-wtkha-omup5-y7eom-ip4b5-lvjdx-qu5wr-nl6w
 
 *Antes de começar, é necessário que você tenha configurado um ambiente de desenvolvedor. Alguns tutoriais em relação à isso estão disponíveis da documentação da ICP.
 
-Inicializar replica local:
+#### Inicializar replica local:
 ```bash
 dfx start --clean --background
 ```
@@ -128,14 +128,14 @@ dfx canister call icrc1_ledger_canister icrc1_transfer "(record {
 
 #### E nosso Setup Local está pronto! A partir daqui, tudo pode ser realizado diretamente no Frontend. Mas caso queira fazer os testes pelo console, aqui estão alguns exemplos:
 
-#### Chamando a função “transferPrivilege” passando de argumento o Principal que queremos utilizar como “Owner”, que fará a distribuição das Runas. Nesse caso será o próprio Principal que estamos usando (“Default”):
+Chamando a função “transferPrivilege” passando de argumento o Principal que queremos utilizar como “Owner”, que fará a distribuição das Runas. Nesse caso será o próprio Principal que estamos usando (“Default”):
 
 ```bash
-dfx canister call hackaton_project_backend transferPrivilege "(principal \"$(dfx identity getprincipal)\")"
+dfx canister call hackaton_project_backend transferPrivilege "(principal \"$(dfx identity get-principal)\")"
 ```
 
-#### Fazendo a distribuição das Runas da Denise e do Edward:
-#### Como proteção para eventuais erros, o Canister requer que a lista de Accounts e a lista de Amounts possua o mesmo tamanho.
+azendo a distribuição das Runas da Denise e do Edward:
+*Como proteção para eventuais erros, o Canister requer que a lista de Accounts e a lista de Amounts possua o mesmo tamanho.
 
 ```bash
 dfx canister call hackaton_project_backend bulkTransfer "(record {
