@@ -58,6 +58,11 @@ E – Edward – 1 Runa – mgc4g-k3pmg-wtkha-omup5-y7eom-ip4b5-lvjdx-qu5wr-nl6w
 
 #### Testando Localmente:
 
+Inicializar replica local:
+```bash
+dfx start --clean --background
+```
+
 #### Primeiramente vamos fazer o deploy das Runas como um ICRC-1 localmente:
 
 #### Para isso, primeiro definimos um “Minter” e uma conta padrão “Default” – para onde as Runas serão mintadas:
