@@ -173,7 +173,9 @@ dfx canister call hackaton_project_backend bulkTransfer "(record {
 
 ## Time
 
-Hiago Ferucci e Marcelo Dussel
+Hiago Ferucci [X - Twitter](https://x.com/CobraX64), [LinkedIn](https://www.linkedin.com/in/marcelo-dussel-bb85a3203/)
+Marcelo Dussel [LinkedIn](https://www.linkedin.com/in/marcelo-dussel-bb85a3203/)
+
 
 # Informações Adicionais
 
