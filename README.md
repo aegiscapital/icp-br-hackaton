@@ -23,7 +23,7 @@ A partir da inscrição dessas runas, utilizamos a infraestrutura da Omnity Netw
 ## Funcionalidades Implementadas no Canister
 
 #### Gerenciamento de acesso 
-- "Ownership", ermite que apenas a Account autorizada faça a distribuição de runas hospedadas no Canister.
+- "Ownership", permite que apenas a Account autorizada faça a distribuição de runas hospedadas no Canister.
 A estrutura de gerenciamento de acesso permite que qualquer pessoa consulte o endereço do Principal autorizado, e também permite que ele faça a transferência da sua autorização para outrem.
 
 #### Distribuição de Runas 
