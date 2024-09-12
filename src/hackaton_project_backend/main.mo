@@ -17,22 +17,26 @@ actor {
     toAccounts : [Icrc1Ledger.Account];
   };
 
-  public shared ({ caller }) func transferPrivilege(newPrincipal : Principal) {
+  public shared ({ caller }) func transferPrivilege(newPrincipal : Principal) : async Bool {
     switch (allowedPrincipal) {
       case (?currentPrincipal) {
         if (caller != currentPrincipal) {
+          Debug.print(
+            "Error: Unauthorized"
+          );
           throw Error.reject("Unauthorized.");
         };
       };
       case null {
-        //If there is no allowed Principal: Authorized.
+        // Authorized
       };
     };
     Debug.print(
-        "Transferring Privilege to: "
-        # debug_show (newPrincipal)
-      );
+      "Transferring Privilege to: "
+      # debug_show (newPrincipal)
+    );
     allowedPrincipal := ?newPrincipal;
+    return true;
   };
 
   public shared ({ caller }) func bulkTransfer(args : TransferArgs) : async [Result.Result<Icrc1Ledger.BlockIndex, Text>] {

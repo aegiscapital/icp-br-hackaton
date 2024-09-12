@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
 import { hackaton_project_backend, canisterId, idlFactory } from 'declarations/hackaton_project_backend/index';
 import { Principal } from '@dfinity/principal';
 import { AuthClient } from "@dfinity/auth-client";
@@ -13,7 +13,20 @@ let newPrincipal = ref('');
 let allowedPrincipal = ref('');
 let loggedPrincipal = ref('');
 let error = ref('');
+let errorRunes = ref('');
+let successMessageRunes = ref('');
+let successMessagePrivilege = ref('');
+let loading = ref(false);
 let webapp = null;
+
+onMounted(async () => {
+  try {
+    const principal = await hackaton_project_backend.getAllowedPrincipal();
+    allowedPrincipal.value = principal.length === 0 ? 'None' : principal;
+  } catch (err) {
+    error.value = "Failed to load allowed principal: " + err.message;
+  }
+});
 
 // Function to add input fields
 function addField() {
@@ -29,6 +42,8 @@ function removeField(index) {
 
 // Handle the bulk transfer
 async function handleBulkTransfer(e) {
+  loading.value = true;
+  successMessageRunes.value = '';
   e.preventDefault();
   try {
     const transferArgs = {
@@ -48,22 +63,35 @@ async function handleBulkTransfer(e) {
       return keys.length > 0 ? keys[0] : null;
     });
 
-    console.log(transferResults.value);
+    successMessageRunes.value = 'Transaction successful!';
+    errorRunes.value = '';
 
   } catch (err) {
-    error.value = "Transfer failed: " + err.message;
+    errorRunes.value = "Transfer failed: " + err.message;
+  } finally {
+    loading.value = false;
   }
 }
 
 // Handle transferring privileges
 async function handleTransferPrivilege(e) {
+  successMessagePrivilege.value = '';
+  loading.value = true;
   e.preventDefault();
-  /* console.log("Current Principal (caller):", Principal.anonymous().toText()); */
   try {
-    await webapp.transferPrivilege(Principal.fromText(newPrincipal.value));
+    const success = await webapp.transferPrivilege(Principal.fromText(newPrincipal.value));
     allowedPrincipal.value = await webapp.getAllowedPrincipal();
+    if (success) {
+      allowedPrincipal.value = await webapp.getAllowedPrincipal();
+      successMessagePrivilege.value = 'Privileges were transferred successfully!';
+    } else {
+      successMessagePrivilege.value = 'Privileges transfer failed.';
+    }
+    error.value = '';
   } catch (err) {
     error.value = "Privilege transfer failed: " + err.message;
+  } finally {
+    loading.value = false;
   }
 }
 
@@ -72,7 +100,7 @@ async function handleLogin() {
     const authClient = await AuthClient.create();
 
     await authClient.login({
-      identityProvider: "http://be2us-64aaa-aaaaa-qaabq-cai.localhost:4943/",
+      identityProvider: "http://br5f7-7uaaa-aaaaa-qaaca-cai.localhost:4943/",
       onSuccess: async () => {
 
         const identity = authClient.getIdentity();
@@ -104,26 +132,45 @@ async function handleLogin() {
 
 <template>
   <nav class="top-bar">
-    <span v-if="loggedPrincipal">Logged in as: {{ loggedPrincipal }}</span>
+    <span v-if="loggedPrincipal">
+      Logged in:
+      <span class="logged-principal">
+        {{ loggedPrincipal }}
+      </span>
+    </span>
     <button class="login-button" @click="handleLogin" :disabled="loggedPrincipal !== ''">
       {{ loggedPrincipal ? 'Logged' : 'Login' }}
     </button>
   </nav>
+
   <main>
     <h1>ICP Runes Control Panel</h1>
     <form @submit="handleBulkTransfer">
       <h2>Distribute Runes</h2>
       <div v-for="(amount, index) in amounts" :key="index">
-        <label>Amount: </label>
-        <input v-model="amounts[index]" type="text" required />
-        <label>To Account: </label>
-        <input v-model="accounts[index]" type="text" required />
+        <div class="input-group">
+          <div class="amount-input-group">
+            <label>Amount: </label>
+            <input v-model="amounts[index]" type="text" required />
+          </div>
+          <div class="account-input-group">
+            <label>To Account: </label>
+            <input v-model="accounts[index]" type="text" required />
+          </div>
+        </div>
         <button type="button" @click="removeField(index)">Remove</button>
       </div>
       <button type="button" @click="addField">Add Another Transfer</button>
       <br /><br />
-      <button type="submit">Submit Transfers</button>
+      <button type="submit" :disabled="loading">
+        <span v-if="loading">Processing...</span>
+        <span v-else>Submit Transfers</span>
+      </button>
     </form>
+    <p v-if="errorRunes">{{ errorRunes }}</p>
+    <p v-if="successMessageRunes" class="success-message">{{ successMessageRunes }}</p>
+
+    <hr />
 
     <section>
       <span>Distribution Results</span>
@@ -132,14 +179,23 @@ async function handleLogin() {
       </ul>
     </section>
 
-    <hr />
+  </main>
+  <main>
 
     <h2>Transfer Privilege</h2>
     <form @submit="handleTransferPrivilege">
       <label>New Principal: </label>
       <input v-model="newPrincipal" type="text" required />
-      <button type="submit">Transfer Privilege</button>
+      <button type="submit" :disabled="loading">
+        <span v-if="loading">Processing...</span>
+        <span v-else>Transfer Privilege</span>
+      </button>
     </form>
+
+    <p v-if="successMessagePrivilege" class="success-message">{{ successMessagePrivilege }}</p>
+
+    <hr />
+
     <p>Allowed Principal: {{ allowedPrincipal }}</p>
 
     <p v-if="error">{{ error }}</p>
