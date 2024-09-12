@@ -134,7 +134,7 @@ Chamando a função “transferPrivilege” passando de argumento o Principal qu
 dfx canister call hackaton_project_backend transferPrivilege "(principal \"$(dfx identity get-principal)\")"
 ```
 
-azendo a distribuição das Runas da Denise e do Edward:
+Fazendo a distribuição das Runas da Denise e do Edward:
 *Como proteção para eventuais erros, o Canister requer que a lista de Accounts e a lista de Amounts possua o mesmo tamanho.
 
 ```bash
