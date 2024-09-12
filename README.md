@@ -58,6 +58,8 @@ E – Edward – 1 Runa – mgc4g-k3pmg-wtkha-omup5-y7eom-ip4b5-lvjdx-qu5wr-nl6w
 
 #### Testando Localmente:
 
+*Antes de começar, é necessário que você tenha configurado um ambiente de desenvolvedor. Alguns tutoriais em relação à isso estão disponíveis da documentação da ICP.
+
 Inicializar replica local:
 ```bash
 dfx start --clean --background
@@ -98,34 +100,45 @@ record {
 })"
 ```
 
-#### Com as Runas mintadas, vamos fazer o deploy do nosso Canister:
-
-dfx deploy token_transfer_backend
-
-#### E vamos chamar a função “transferPrivilege” passando de argumento o Principal que queremos utilizar como “Owner”, que fará a distribuição das Runas. Nesse caso será o próprio Principal que estamos usando (“Default”):
+#### Com as Runas mintadas, vamos fazer o deploy do nosso Canister, Frontend e também o Canister da Internet Identity, que permitirá a conexão com o usuário:
 
 ```bash
-dfx canister call token_transfer_backend transferPrivilege "(principal \"$(dfx identity getprincipal)\")"
+dfx deploy hackaton_project_backend
 ```
 
-#### E finalmente podemos finalizar o nosso Setup Local transferindo Runas para o Canister. 
+```bash
+dfx deploy internet_identity
+```
+
+```bash
+dfx deploy hackaton_project_frontend
+```
+
+#### Então podemos transferir Runas para o Canister. 
 #### Nesse exemplo, vamos enviar 10 Runas:
 
 ```bash
 dfx canister call icrc1_ledger_canister icrc1_transfer "(record {
  to = record {
- owner = principal \"$(dfx canister id token_transfer_backend)\";
+ owner = principal \"$(dfx canister id hackaton_project_backend)\";
  };
  amount = 1_000_000_000;
 })"
 ```
 
-#### Com o Setup finalizado, podemos fazer o uso do Canister utilizando nosso Principal “Default”.
-#### Vamos fazer a distribuição das Runas da Denise e do Edward.
+#### E nosso Setup Local está pronto! A partir daqui, tudo pode ser realizado diretamente no Frontend. Mas caso queira fazer os testes pelo console, aqui estão alguns exemplos:
+
+#### Chamando a função “transferPrivilege” passando de argumento o Principal que queremos utilizar como “Owner”, que fará a distribuição das Runas. Nesse caso será o próprio Principal que estamos usando (“Default”):
+
+```bash
+dfx canister call hackaton_project_backend transferPrivilege "(principal \"$(dfx identity getprincipal)\")"
+```
+
+#### Fazendo a distribuição das Runas da Denise e do Edward:
 #### Como proteção para eventuais erros, o Canister requer que a lista de Accounts e a lista de Amounts possua o mesmo tamanho.
 
 ```bash
-dfx canister call token_transfer_backend bulkTransfer "(record {
+dfx canister call hackaton_project_backend bulkTransfer "(record {
  amounts = vec {
  200_000_000;
  100_000_000;
