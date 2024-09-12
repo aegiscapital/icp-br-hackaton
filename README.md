@@ -167,6 +167,11 @@ dfx canister call hackaton_project_backend bulkTransfer "(record {
 
 ![image](https://github.com/user-attachments/assets/65cfff03-8eea-46bf-92f4-a553d8be793a)
 
+- **Login pela Internet ID**
+
+![image](https://github.com/user-attachments/assets/737bb2ed-63c5-4e6d-9067-8813b9a0e023)
+
+
 - **Transferência para Múltiplos Usuários Simultaneamente**
 
 ![image](https://github.com/user-attachments/assets/81449380-1453-4d1c-bec1-2b325292ac19)
