@@ -23,17 +23,17 @@ Nossa principal visão é unir a segurança e confiabilidade da rede do Bitcoin 
 
 ## Como Fazemos 
 
-####- Passo 1:
+#### - Passo 1:
 Inscrição dos ativos do protocolo Runes na rede L1 do Bitcoin, representando a ICP HUB BR na maior e mais segura blockchain existente.
 
 (usamos o app https://ordinalsbot.com/runes pela simplicidade e rapidez, como alternativa à inscrição direta em um nó de BTC)
 
-####- Passo 2:
+#### - Passo 2:
 Registro das Runas na rede da ICP utilizando a ferramena de bridge da infraestrutura Omnity Network - https://bridge.omnity.network/runes 
 
 (verificável via cannister criado pela própria Omnity Network em um processo de travamento de ativos na camada 1 do Bitcoin e emissão na rede ICP com o padrão IRCR-1)
 
-####- Passo 3:
+#### - Passo 3:
 Registro do nosso próprio cannister para manipulação e distribuição das Runas/Tokens na rede ICP.
 
 A principal ferramenta para criar, implementar e gerenciar os dapps para a plataforma da IC é a dfx (DFINITY command-line execution environment), que está contida na IC SDK (software development kit). 
