@@ -70,7 +70,7 @@ E – Edward – 1 Runa – mgc4g-k3pmg-wtkha-omup5-y7eom-ip4b5-lvjdx-qu5wr-nl6w
 
 #### Testando Localmente:
 
-*Antes de começar, é necessário que você tenha configurado um ambiente de desenvolvedor. Alguns tutoriais em relação à isso estão disponíveis da documentação da ICP.
+Antes de começar, é necessário que você tenha configurado um ambiente de desenvolvedor. Alguns tutoriais em relação à isso estão disponíveis da documentação da ICP.
 
 #### Inicializar replica local:
 ```bash
