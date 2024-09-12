@@ -21,6 +21,20 @@ A partir da inscrição dessas runas, utilizamos a infraestrutura da Omnity Netw
 
 Nossa principal visão é unir a segurança e confiabilidade da rede do Bitcoin com a escalabilidade e programabilidade da rede ICP. Com isso, permitimos ao HUB ICP BR uma forma única, exclusiva e valiosa de recompensar os membros de sua comunidade. Nossa implementação permite o envio em massa dessas recompensas onchain para os membros da comunidade, além de permitir a programabilidade de outras ferramentas como bots de Discord e contratos automatizados para distribuição desses ativos.
 
+## Funcionalidades Implementadas
+
+Gerenciamento de acesso - "Ownership"
+Permite que apenas a Account autorizada faça a distribuição de runas hospedadas no Canister.
+A estrutura de gerenciamento de acesso permite que qualquer pessoa consulte o endereço do Principal autorizado, e também permite que ele faça a transferência da sua autorização para outrem.
+
+Distribuição de Runas 
+Permite a distribuição facilitada e automatizada das Runas armazenadas no Canister.
+A estrutura do FrontEnd proporciona um método direto e intuitivo para realizar a distribuição simultânea de Runas para uma quantidade virtualmente ilimitada de pessoas.
+
+Integração com a Internet Identity
+
+Permite um Login rápido na plataforma, baseado na confiabilidade e segurança da Internet Identity.
+
 ## Como Fazemos 
 
 #### - Passo 1:
