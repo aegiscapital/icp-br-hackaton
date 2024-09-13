@@ -182,7 +182,7 @@ dfx canister call hackaton_project_backend bulkTransfer "(record {
 
 ## Demonstração do Website
 
-### Link: [Website Demo - PT-BR](https://drive.google.com/file/d/17XZamV7xKg2Hs9WDM7sDYC1fipLar9n9/view?usp=sharing)
+### Link: [Video Website Demo - PT-BR](https://drive.google.com/file/d/17XZamV7xKg2Hs9WDM7sDYC1fipLar9n9/view?usp=sharing)
 
 ## Time
 
