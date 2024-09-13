@@ -40,16 +40,16 @@ Inscrição dos ativos do protocolo Runes na rede L1 do Bitcoin, representando a
 
 (usamos o app https://ordinalsbot.com/runes pela simplicidade e rapidez, como alternativa à inscrição direta em um nó de BTC)
 
-Runas Inscritas na camada 1 do Bitcoin: https://luminex.io/rune/ICP%E2%80%A2HUB%E2%80%A2BRASIL
+#### Runas Inscritas na camada 1 do Bitcoin: https://luminex.io/rune/ICP%E2%80%A2HUB%E2%80%A2BRASIL
 
 #### - Passo 2:
 Registro das Runas na rede da ICP utilizando a ferramena de bridge da infraestrutura Omnity Network - https://bridge.omnity.network/runes 
 
-Registro na Omnity Network: https://explorer.omnity.network/token/ICP%E2%80%A2HUB%E2%80%A2BRASIL
+#### Registro na Omnity Network: https://explorer.omnity.network/token/ICP%E2%80%A2HUB%E2%80%A2BRASIL
 
 (verificável via canister criado pela própria Omnity Network em um processo de travamento de ativos na camada 1 do Bitcoin e emissão na rede ICP com o padrão IRCR-1)
 
-Runas na rede ICP: https://ic.house/token/z754i-fiaaa-aaaar-qaida-cai
+#### Runas na rede ICP: https://ic.house/token/z754i-fiaaa-aaaar-qaida-cai
 
 #### - Passo 3:
 Registro do nosso próprio cannister para manipulação e distribuição das Runas/Tokens na rede ICP.
