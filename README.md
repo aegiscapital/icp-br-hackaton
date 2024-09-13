@@ -190,4 +190,4 @@ dfx canister call hackaton_project_backend bulkTransfer "(record {
 
 #### Marcelo Dussel [LinkedIn](https://www.linkedin.com/in/marcelo-dussel-bb85a3203/)
 
-#### Realização: Aegis Protocol [X/Twitter](https://x.com/DAOAegis), [Website](https://www.linkedin.com/in/marcelo-dussel-bb85a3203/](https://aegisprotocol.xyz/)
+#### Realização: Aegis Protocol [X/Twitter](https://x.com/DAOAegis), [Website](https://aegisprotocol.xyz/)
