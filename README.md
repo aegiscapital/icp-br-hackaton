@@ -18,7 +18,7 @@ Nossa principal visão é unir a segurança e confiabilidade da rede do Bitcoin 
 ## A Solução
 
 Nossa solução permite a utilização de ativos onchain para recompensar a comunidade da ICP HUB BR em eventos, torneios e sorteios promovidos pelo HUB, de maneira flexível, permitindo uma integração tecnológica e de cunho educacional, tanto em relação a desenvolvimento na rede do Bitcoin quanto na rede ICP.  
-A partir da inscrição dessas runas, utilizamos a infraestrutura da Omnity Network para fazer uma ponte com o objetivo de representar esse ativos na rede da ICP e armazená-los em um canister de controle, que controla esses ativos e os distribui simultaneamente para vários usuários, de forma muito mais barata e escalável graças à estrutura da rede ICP.
+A partir da inscrição dessas runas, utilizamos a infraestrutura da Omnity Network para fazer uma ponte com o objetivo de representar esse ativos na rede da ICP e armazená-los em um canister de controle, que ministra esses ativos e os distribui simultaneamente para vários usuários, de forma muito mais barata e escalável graças à estrutura da rede ICP.
 
 ## Funcionalidades Implementadas no Canister
 
